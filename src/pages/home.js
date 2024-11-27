@@ -12,7 +12,7 @@ const Home = () => {
       </Helmet>
 
       <Header />
-
+     
       <MainContent pageName="HOME Page" />
 
       <Footer />

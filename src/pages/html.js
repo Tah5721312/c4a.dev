@@ -7,11 +7,11 @@ const Html = () => {
   return (
     <>
       <Helmet>
-        <title>HTML Page</title>
+        <title>html Page</title>
         <meta name="description" content="HTMLLLLLLLLLLLLLLLL" />
       </Helmet>
       <Header />
-      <MainContent pageName="HTML Page" />
+      <MainContent pageName="Mohamed Abdelftah  Page" />
       <Footer />
     </>
   );

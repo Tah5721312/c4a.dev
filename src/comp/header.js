@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
@@ -5,11 +7,17 @@ import "../theme.css";
 // LEVEL2
 import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/config";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [user, loading, error] = useAuthState(auth);
+
   return (
     <div className="myheader">
+      {user && <h3>tahhhhh</h3>}
       <header className="hide-when-mobile ali">
         <h1>
           <Link to="/">c4a.dev</Link>
@@ -37,53 +45,65 @@ const Header = () => {
         ></i>
 
         <ul className="flex">
+          {!user && (
+            <li className="main-list">
+              <NavLink className="main-link" to="/signin">
+                Sign-in
+              </NavLink>
+            </li>
+          )}
+          {!user && (
+            <li className="main-list">
+              <NavLink className="main-link" to="/signup">
+                Sign-up
+              </NavLink>
+            </li>
+          )}
+                {user && (
+            <li onClick={() => {
+              signOut(auth).then(() => {
+              console.log("Sign-out successful");  // Sign-out successful.
+              }).catch((error) => {
+                // An error happened.
+              });
+              
+            }} className="main-list">
+              <NavLink className="main-link">
+                Sign-out
+              </NavLink>
+            </li>
+          )}
 
-        <li className="main-list">
-            <NavLink className="main-link" to="/signin">
-              Sign-in
-            </NavLink>
-          
-          </li>
-
-
-
-          <li className="main-list">
-            <NavLink className="main-link" to="/signup">
-              Sign-up
-            </NavLink>
-          
-          </li>
-
-
-
-
-          <li className="main-list">
-            <NavLink className="main-link" to="/html">
-              HTML
-            </NavLink>
-            <ul className="sub-ul">
-              <li>
-                <a href="">Full Course</a>
-              </li>
-              <li>
-                <a href="">Crash Course</a>
-              </li>
-              <li>
-                <a href="">learn in 1h</a>
-              </li>
-            </ul>
-          </li>
-          
-          <li className="main-list">
-            <NavLink className="main-link" to="/javascript">
-              JavaScript
-            </NavLink>
-            <ul className="sub-ul sub-of-js">
-              <li>
-                <a href="">coming soon🔥</a>
-              </li>
-            </ul>
-          </li>
+          {user && (
+            <li className="main-list">
+              <NavLink className="main-link" to="/html">
+                HTML
+              </NavLink>
+              <ul className="sub-ul">
+                <li>
+                  <a href="">Full Course</a>
+                </li>
+                <li>
+                  <a href="">Crash Course</a>
+                </li>
+                <li>
+                  <a href="">learn in 1h</a>
+                </li>
+              </ul>
+            </li>
+          )}
+          {user && (
+            <li className="main-list">
+              <NavLink className="main-link" to="/javascript">
+                JavaScript
+              </NavLink>
+              <ul className="sub-ul sub-of-js">
+                <li>
+                  <a href="">coming soon🔥</a>
+                </li>
+              </ul>
+            </li>
+          )}
         </ul>
       </header>
 
