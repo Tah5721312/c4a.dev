@@ -10,18 +10,25 @@ import ThemeContext from "../context/ThemeContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/config";
 import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
 
   return (
     <div className="myheader">
       {user && <h3>tahhhhh</h3>}
       <header className="hide-when-mobile ali">
         <h1>
+        
           <Link to="/">c4a.dev</Link>
+        
         </h1>
+      
+      
+      
         {/* <button
           onClick={() => {
             toggleTheme(theme === "Light" ? "Dark" : "Light");
@@ -62,15 +69,17 @@ const Header = () => {
                 {user && (
             <li onClick={() => {
               signOut(auth).then(() => {
-              console.log("Sign-out successful");  // Sign-out successful.
+              console.log("Sign-out successful"); // Sign-out successful.
+              navigate("/signin");
+
               }).catch((error) => {
                 // An error happened.
               });
               
             }} className="main-list">
-              <NavLink className="main-link">
+              <button className="main-link signout">
                 Sign-out
-              </NavLink>
+              </button>
             </li>
           )}
 

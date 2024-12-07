@@ -45,7 +45,7 @@ h1 {
 
 .sub-ul,
 .sub-sub-ul {
-  animation: hoverrr 1s 1;
+  animation: hoverrr 2s 1;
 }
 
 @keyframes hoverrr {
@@ -80,7 +80,7 @@ span {
 .show-on-click,
 .sub-div,
 .sub-sub-div {
-  animation: move 1s 1;
+  animation: move 2s 1;
 }
 
 @keyframes move {

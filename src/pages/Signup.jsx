@@ -7,11 +7,15 @@ import { Helmet } from "react-helmet-async";
 import {useState} from 'react';
 import {auth} from '../firebase/config';
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [hasError, sethasError] = useState(false);
+  const [firebaseError, setfirebaseError] = useState("");
   return (
     <>
       <Helmet>
@@ -32,20 +36,37 @@ const Signup = () => {
               // Signed up 
               const user = userCredential.user;
               console.log("done");
+              navigate("/");
               // ...
             })
             .catch((error) => {
               const errorCode = error.code;
-              const errorMessage = error.message;
-            console.log(errorMessage);
-              // ..
+              sethasError(true)            
+              switch (errorCode) {
+                case "auth/invalid-email":
+                  setfirebaseError("Wrong Email")
+                  break;
+                case "auth/invalid-login-credentials":
+                  setfirebaseError("invalid Email OR Password")
+                  break;
+                case "auth/too-many-requests":
+                  setfirebaseError("Please Try Again Later")
+                  break;
+                default:
+                  setfirebaseError(errorCode)
+                  break;
+              }
             });
             
           }}>Sign up</button>
           <p className="account">
           Already hava an account <Link to="/signin"> Sign-in</Link>
-          </p>
+          </p>  
+          {hasError && <h1>{firebaseError}</h1>}
+
         </form>
+
+
       </main>
       <Footer />
     </>
