@@ -27,8 +27,8 @@ const Signin = () => {
 
       <main>
         <form>
-          <input onChange={(eo) => {setEmail(eo.target.value)}} required placeholder=" E-mail : " type="email" />
-          <input onChange={(eo) => {setPassword(eo.target.value)}} required placeholder=" Password : " type="password" />
+        <input onChange={(eo) => {setEmail(eo.target.value)}} required placeholder=" E-mail : " type="email" />
+        <input onChange={(eo) => {setPassword(eo.target.value)}} required placeholder=" Password : " type="password" />
           <button onClick={(eo) => {
               eo.preventDefault(); /////prevent default refresh for button 
             signInWithEmailAndPassword(auth, email, password)

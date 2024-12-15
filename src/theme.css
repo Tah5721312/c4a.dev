@@ -29,18 +29,21 @@
 =================*/
 
 .Dark {
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(247, 243, 243, 0.87);
   background-color: #242424;
 }
+.Light {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #ffffff;
+}
 
-.Dark main {
+a {
   color: rgba(255, 255, 255, 0.87);
 }
 
 .Dark .ali {
   background-color: rgba(17, 17, 17, 0.885) !important
 }
-
 
 /* ==============
 Icon (sun & moon)

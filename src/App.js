@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/home";
-import HTML from "./pages/html";
+import Home from "./pages/Home";
+import About from "./pages/About";
 import Css from "./pages/css";
-import Javascript from "./pages/javascript";
+import Profile from "./pages/Profile";
 // LEVEL2
 import { useContext } from "react";
 import ThemeContext from "./context/ThemeContext";
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
 
 
   {
-    path: "/html",
-    element: <HTML />,
+    path: "/About",
+    element: <About />,
   },
 
   {
@@ -38,8 +38,8 @@ const router = createBrowserRouter([
     element: <Css />,
   },
   {
-    path: "/javascript",
-    element: <Javascript />,
+    path: "/Profile",
+    element: <Profile />,
   },
 ]);
 

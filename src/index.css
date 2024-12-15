@@ -13,7 +13,7 @@ body {
 * {
   margin: 0;
   padding: 0;
-  color: white;
+  /* color: rgb(230, 161, 161); */
 
   font-family: sans-serif;
 
@@ -23,10 +23,10 @@ body {
   letter-spacing: 1px;
 }
 
-html {
+/* html {
   box-sizing: border-box;
   background-color: #f2f2f2;
-}
+} */
 
 *,
 *:before,
@@ -35,7 +35,7 @@ html {
 }
 
 header {
-  background-color: #1b1b1b;
+  background-color: #000000;
 }
 
 h1 {
@@ -69,6 +69,30 @@ form button {
   border: none;
   color: white;
 }
+form button:active{
+  scale: 0.9;
+  border-radius: 0;
+  }
+button {
+  padding: 8px 12px;
+  background-color: rgb(108, 212, 94);
+  border-radius: 5px;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  color: white;
+}
+  button:hover{
+
+  color: rgb(35, 44, 44);
+    box-shadow: 0 0 5px cyan;
+    border-radius: 5px;
+  }
+  button:active{
+    
+    border-radius:9px;
+  }
+
 
 .account{
   font-size: 16px;
@@ -81,7 +105,7 @@ form button {
   border-bottom: 3px solid;
   padding-bottom: 2px;
   font-weight: 600;
-  color: #00c6c6;
+  color: #46aaaa;
   font-size: 18px;
 }
 .Light .pls
@@ -93,7 +117,10 @@ form button {
 }
 
 
-form button:active{
-scale: 0.9;
-border-radius: 0;
+.prof
+{
+  display: grid;
+  justify-items: start;
+  font-size: 20px;
+
 }

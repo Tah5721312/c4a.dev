@@ -18,16 +18,18 @@
 .flex {
   display: flex;
   align-items: center;
+  /* margin-left: 0px; */
 }
 
 .main-list {
-  padding: 10px 20px;
-  font-size: 19px;
+  /* padding: 10px 20px; */
+  font-size: 18px;
   position: relative;
 }
 
 .main-link {
   padding: 8px 15px;
+  margin-left: 4px;
 }
 
 .main-link:hover ,.main-link.active {

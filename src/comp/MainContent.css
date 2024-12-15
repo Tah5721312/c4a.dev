@@ -1,5 +1,5 @@
 main{
-  color: #1b1b1b;
+  color: #050505; 
 
   height: calc(100vh - 133px);
 
@@ -11,5 +11,24 @@ main{
   justify-content: center;
   align-items: center;
  
-  text-align: center;
+  text-align: center;   
+   display: flex;
+  flex-direction: column;
+}
+.Dark main{
+  color: #ffffff; 
+
+  height: calc(100vh - 133px);
+
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  text-align: center;   
+   display: flex;
+  flex-direction: column;
 }

@@ -3,8 +3,6 @@
   background-color: teal;
 }
 
-
-
 .hide-when-mobile {
   display: flex;
   justify-content: space-around;
@@ -21,11 +19,12 @@
 
 @media (max-width: 800px) {
   .show-when-mobile {
-    /* display: block; */
+    display: block;
+    font-size: 16px;
   }
   
   .hide-when-mobile {
-    /* display: none; */
+    display: none;
   }
 }
 .signout
@@ -33,6 +32,11 @@
   all:unset;
   padding: 8px 15px;
 }
+.Light .signout
+{
+  color: rgb(255, 255, 255);
+}
+
 
 
 
